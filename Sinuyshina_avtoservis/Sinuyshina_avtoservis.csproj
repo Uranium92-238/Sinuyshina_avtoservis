@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,9 +67,60 @@
     <Compile Include="AddEditPage.xaml.cs">
       <DependentUpon>AddEditPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Client.cs">
+      <DependentUpon>SinuyshinaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClientService.cs">
+      <DependentUpon>SinuyshinaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocumentByService.cs">
+      <DependentUpon>SinuyshinaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Gender.cs">
+      <DependentUpon>SinuyshinaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Manager.cs" />
+    <Compile Include="Manufacturer.cs">
+      <DependentUpon>SinuyshinaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>SinuyshinaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductPhoto.cs">
+      <DependentUpon>SinuyshinaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductSale.cs">
+      <DependentUpon>SinuyshinaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Service.cs">
+      <DependentUpon>SinuyshinaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ServicePage.xaml.cs">
       <DependentUpon>ServicePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ServicePhoto.cs">
+      <DependentUpon>SinuyshinaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServPage.xaml.cs">
+      <DependentUpon>ServPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SinuyshinaModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SinuyshinaModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SinuyshinaModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SinuyshinaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SinuyshinaModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SinuyshinaModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Tag.cs">
+      <DependentUpon>SinuyshinaModel.tt</DependentUpon>
     </Compile>
     <Page Include="AddEditPage.xaml">
       <SubType>Designer</SubType>
@@ -79,6 +139,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ServicePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ServPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -101,9 +165,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <EntityDeploy Include="SinuyshinaModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SinuyshinaModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SinuyshinaModel.edmx.diagram">
+      <DependentUpon>SinuyshinaModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -114,6 +186,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\service_logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SinuyshinaModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SinuyshinaModel.Context.cs</LastGenOutput>
+      <DependentUpon>SinuyshinaModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="SinuyshinaModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SinuyshinaModel.edmx</DependentUpon>
+      <LastGenOutput>SinuyshinaModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
