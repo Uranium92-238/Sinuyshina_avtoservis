@@ -22,7 +22,7 @@ namespace Sinuyshina_avtoservis
     {
         public ServicePage()
         {
-            InitializeComponent();
+            InitializeComponent(); 
             var currentServices = Sinuyshina_avtoservisEntities.GetContext().Service.ToList();
             ServiceListView.ItemsSource = currentServices;
             ComboType.SelectedIndex = 0;
